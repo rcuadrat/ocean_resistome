@@ -34,3 +34,10 @@ mkdir ARG_fastas/nt
 
 mv ARG_ORFs_lists/*.edit.fasta ARG_fastas/nt
 mv ARG_ORFs_lists/ptn/*.edit.fasta ARG_fastas/ptn
+
+cd lists_deepARG
+for f in $(ls *.list);
+do 
+    xargs samtools faidx ../deepARGdb/v1/deepARGdb.fasta <  $f > ${f%.list}.fasta;
+done
+cd ..

@@ -30,7 +30,6 @@ wait
 cd $contigsall
 xargs samtools faidx all_contigs.fa < all_contigs_with_args.list > all_contigs_with_args.fasta
 
-
 cd ${inreads}/nt
 for f in $(ls *.fna); 
 do 

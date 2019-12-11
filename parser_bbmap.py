@@ -8,13 +8,13 @@ df_census=pd.read_csv("TSV/census.tsv",sep='\t')
 # features of ARGs on deepARG (came from deepARG database folder)
 # Need to be downloaded from https://bitbucket.org/gusphdproj/deeparg-ss/src/master/database/v2/features.gene.length
 
-feat=pd.read_table("deepARGdb/v2/features.gene.length",header=None)
+feat=pd.read_csv("deepARGdb/v1/features.gene.length",header=None,sep="\t")
 feat.columns=["best-hit","size"]
 genes_on_db=feat["best-hit"].str.split("|",expand=True)[4]
 
 #
 
-deep=pd.read_table("TSV/deepARG_plasflow_kaiju.tsv")
+deep=pd.read_csv("TSV/deepARG_plasflow_kaiju.tsv",sep="\t)
 
 #parser for bbmap output with RPKG normalization
 path_arg="bbmap_out/"
@@ -52,7 +52,7 @@ all_FPKM=reg2.copy()
 
 
 all_RPKG.to_csv("TSV/RPKG.tsv",sep="\t",index=None)
-all_FPKM.to_csv("TSV/RPKG.tsv",sep="\t",index=None)
+all_FPKM.to_csv("TSV/FPKM.tsv",sep="\t",index=None)
 
 
 

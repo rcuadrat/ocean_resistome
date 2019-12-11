@@ -7,11 +7,11 @@ inreads=$(readlink -f ORFS)/
 
 cd ${inreads}/nt
 
-# for f in $(ls *.fna );do
-#     echo $f
-#     sed -i -e 's/>TARA/TARA/g' $f &
-# done
-# wait
+for f in $(ls *.fna );do
+    echo $f
+    sed -i -e 's/>TARA/TARA/g' $f &
+done
+wait
 
 for f in $(ls *.fna );do
     echo $f
@@ -23,11 +23,11 @@ wait
 
 cd ${inreads}/ptn
 
-# for f in $(ls *.faa );do
-#     echo $f
-#     sed -i -e 's/>TARA/TARA/g' $f &
-# done
-# wait
+for f in $(ls *.faa );do
+    echo $f
+    sed -i -e 's/>TARA/TARA/g' $f &
+done
+wait
 
 for f in $(ls *.faa );do
     echo $f

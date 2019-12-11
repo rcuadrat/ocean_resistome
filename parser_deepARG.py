@@ -11,7 +11,7 @@ new_contig_gene_ids=pd.read_csv("TSV/new_contig_gene_ids.tsv",sep="\t")
 
 path_arg="deeparg_out/"
 files  = os.listdir(path_arg)
-
+os.system("mkdir -p CONTIGS/all")
 
 deepARG=pd.DataFrame()
 for f in files:

@@ -10,7 +10,7 @@ mkdir -p deeparg_out
 cd ${inreads}
 for f in $(ls *.fna );do
 echo $f
-docker run --rm -it -v $DEEPARG_DATA:/data/ gaarangoa/deeparg:v1.0.1 python /deeparg/deepARG.py --align --type nucl --genes --input /data/$f --output /data/${f%.fna}.out
+docker run --rm -it -v $DEEPARG_DATA:/data/ gaarangoa/deeparg:v1.0.1 python /deeparg/deepARG.py --align --type nucl --genes --v1  --input /data/$f --output /data/${f%.fna}.out
 
 done
 
@@ -18,3 +18,4 @@ done
 mv *ARG* ../../deeparg_out
 
 cd ../..
+

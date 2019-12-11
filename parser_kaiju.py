@@ -68,16 +68,19 @@ import os
 # deep_plas_kaiju=pd.merge(deep_plas_kaiju,kaiju_contig,on="contig_id",how="left")
 # deep_plas_kaiju.to_csv("TSV/deepARG_plasflow_kaiju.tsv",sep="\t",index=None)
 
-deep_plas_kaiju=pd.read_csv("TSV/deep_plas_kaiju.tsv",sep="\t")
+deep_plas_kaiju=pd.read_csv("TSV/deepARG_plasflow_kaiju.tsv",sep="\t")
 
 os.system("mkdir -p ARG_ORFs_lists")
 os.system("mkdir -p ARG_ORFs_lists/ptn")
+os.system("mkdir -p lists_deepARG")
 
 all_ARGS=list(set(deep_plas_kaiju["#ARG"]))
-df_tmp_list=deep_plas_kaiju[["#ARG","ORF_ID","sample","ptn_id"]]
+df_tmp_list=deep_plas_kaiju[["#ARG","ORF_ID","sample","ptn_id","best-hit"]]
 
 for a in all_ARGS:
     tmp=df_tmp_list[df_tmp_list["#ARG"]==a]
+    tmp["best-hit"].drop_duplicates().to_csv("lists_deepARG/"+re.sub('[^a-zA-Z0-9 \n\.]', '', a)+".list",header=None,index=None)
+
     tmp["ptn_id"]=tmp["ptn_id"]+"|"+tmp["sample"]
     tmp["ptn_id"].to_csv("ARG_ORFs_lists/ptn/"+re.sub('[^a-zA-Z0-9 \n\.]', '', a)+".list",header=None,index=None)
     tmp["ORF_ID"].to_csv("ARG_ORFs_lists/"+re.sub('[^a-zA-Z0-9 \n\.]', '', a)+".list",header=None,index=None)
