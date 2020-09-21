@@ -1,8 +1,8 @@
 # Ocean Resistome pipeline
 
-- This repository host the scripts used in the article "Global ocean resistome revealed: exploring Antibiotic Resistance Genes (ARGs) abundance and distribution on TARA oceans samples"
+- This repository host the scripts used in the article "Global ocean resistome revealed: exploring Antibiotic Resistance Gene (ARGs) abundance and distribution on TARA oceans samples"
 
-https://www.biorxiv.org/content/10.1101/765446v1
+https://academic.oup.com/gigascience/article/9/5/giaa046/5835778
 
 - The main script is pipeline.sh
 - Results from pipeline can be visualize with the python notebook exploring.ipynb
